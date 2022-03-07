@@ -1,0 +1,18 @@
+#btn-signup {
+  background-color: rgb(32, 136, 221);
+  font-size: 18px;
+  padding: 7px;
+  border: 2px solid rgb(78, 78, 78);
+  border-radius: 15px;
+  width: max-content;
+}
+#btn-signup:disabled {
+  background-color: rgb(163, 163, 163);
+}
+.warning {
+  font-size: 16px;
+  color: red;
+}
+.form-group-2 input {
+  width: 100%;
+}

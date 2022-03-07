@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(231, 231, 231);
+}
+.main-container {
+  border-radius: 40px;
+  align-content: center;
+  margin: auto;
+  width: 30%;
+  padding: 15px;
+  margin-top: 40px;
+  background-color: rgb(255, 255, 255);
+  height: max-content;
+}
+.heading-1 {
+  font-size: 28px;
+  text-align: center;
+}
+.form-container {
+  border-radius: 20px;
+  padding: 15px;
+  margin: 20px;
+  height: max-content;
+  background-color: #ffffff;
+  top: 15%;
+}
+form input {
+  padding: 10px;
+  font-size: 20px;
+  border: 1.5px solid darkgray;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px rgb(150, 150, 150);
+  width: 100%;
+  margin-bottom: 10px;
+}
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.buttons {
+  max-width: 100%;
+  font-size: 16px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-other {
+  display: flex;
+  align-items: center;
+}
+#btn-click-here {
+  background-color: rgb(40, 212, 97);
+  font-size: 18px;
+  padding: 7px;
+  border: 2px solid rgb(78, 78, 78);
+  border-radius: 15px;
+  width: max-content;
+  margin-left: 10px;
+}

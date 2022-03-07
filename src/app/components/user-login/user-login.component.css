@@ -1,0 +1,8 @@
+#btn-login {
+  background-color: rgb(32, 136, 221);
+  font-size: 18px;
+  padding: 7px;
+  border: 2px solid rgb(78, 78, 78);
+  border-radius: 15px;
+  width: max-content;
+}

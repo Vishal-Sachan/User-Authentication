@@ -1,0 +1,19 @@
+<div class="main-container">
+    <div class="heading-1">
+        Log In Page
+    </div>
+    <div class="form-container">
+        <form [formGroup]="form">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password">
+            <div class="buttons">
+                <button type="submit" id="btn-login" [disabled]="!form.valid">Log In</button>
+                <div class="btn-other">If not registered
+                    <button type="submit" id="btn-click-here" routerLink="/">Click Here</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
