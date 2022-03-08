@@ -28,6 +28,9 @@ export class UserSignupComponent implements OnInit {
       Validators.required,
       Validators.minLength(8)
     ]),
+    checkbox: new FormControl('', [
+      Validators.required
+    ])
   })
 
   get userName() {

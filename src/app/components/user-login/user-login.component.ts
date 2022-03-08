@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticateService } from 'src/app/services/authenticate.service';
 
 @Component({
   selector: 'app-user-login',
@@ -8,7 +9,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class UserLoginComponent implements OnInit {
 
+  constructor(private authService: AuthenticateService) { }
+
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  tokenPattern = "^([a-zA-Z0-9_=]+)\.([a-zA-Z0-9_=]+)\.([a-zA-Z0-9_\-\+\/=]*)"
 
   form = new FormGroup({
     email: new FormControl('', [
@@ -20,6 +24,13 @@ export class UserLoginComponent implements OnInit {
       Validators.minLength(8)
     ]),
   })
+
+  formToken = new FormGroup({
+    token: new FormControl('', [
+      Validators.required,
+    ])
+  })
+
   get email() {
     return this.form.get('email')
   }
@@ -27,8 +38,12 @@ export class UserLoginComponent implements OnInit {
     return this.form.get('password')
   }
 
-
-  constructor() { }
+  login(val: any) {
+    this.authService.loginNormal(val)
+  }
+  loginToken(val: string) {
+    this.authService.loginToken(val)
+  }
 
   ngOnInit(): void {
   }

@@ -16,3 +16,20 @@
 .form-group-2 input {
   width: 100%;
 }
+.check {
+  margin-top: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+.checkbox-round {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid rgb(0, 0, 0);
+  outline: none;
+  cursor: pointer;
+  margin-right: 10px;
+  box-shadow: none;
+}

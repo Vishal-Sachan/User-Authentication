@@ -1,8 +1,36 @@
 #btn-login {
-  background-color: rgb(32, 136, 221);
+  background-color: rgb(34, 128, 216);
   font-size: 18px;
   padding: 7px;
   border: 2px solid rgb(78, 78, 78);
   border-radius: 15px;
   width: max-content;
+}
+#btn-login:disabled {
+  background-color: rgb(163, 163, 163);
+}
+.or {
+  align-self: center;
+  padding: 20px;
+}
+#btn-token {
+  font-size: 35px;
+  font-weight: 600;
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 1px;
+  padding-left: 11px;
+  padding-right: 8px;
+  background-color: rgb(34, 128, 216);
+}
+#btn-token:disabled {
+  background-color: rgb(163, 163, 163);
+}
+.token-container {
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+#token-input {
+  margin: 0;
 }

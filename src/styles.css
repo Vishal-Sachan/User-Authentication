@@ -8,7 +8,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(224, 224, 224);
 }
 .main-container {
   border-radius: 40px;
@@ -37,7 +37,6 @@ form input {
   font-size: 20px;
   border: 1.5px solid darkgray;
   border-radius: 15px;
-  box-shadow: 3px 3px 5px rgb(150, 150, 150);
   width: 100%;
   margin-bottom: 10px;
 }
