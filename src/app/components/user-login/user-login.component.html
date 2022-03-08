@@ -9,14 +9,15 @@
             <label for="password">Password</label>
             <input type="password" formControlName="password">
             <div class="buttons">
-                <button type="submit" id="btn-login" [disabled]="!form.valid" (click)="login(form.value)">Log
+                <button type="submit" id="btn-login" [disabled]="!form.valid"
+                    (click)="authService.login(form.value)">Log
                     In</button>
                 <div class="btn-other">If not registered
                     <button type="submit" id="btn-click-here" routerLink="/">Click Here</button>
                 </div>
             </div>
         </form>
-        <form [formGroup]="formToken">
+        <!-- <form [formGroup]="formToken">
             <a class="or">OR</a>
             <label for="token">Token</label>
             <div class="token-container">
@@ -24,6 +25,6 @@
                 <button type="submit" id="btn-token" [disabled]="!formToken.valid"
                     (click)="loginToken(formToken.value)">></button>
             </div>
-        </form>
+        </form> -->
     </div>
 </div>

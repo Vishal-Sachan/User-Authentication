@@ -9,7 +9,7 @@ import { AuthenticateService } from 'src/app/services/authenticate.service';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(private authService: AuthenticateService) { }
+  constructor(public authService: AuthenticateService) { }
 
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   tokenPattern = "^([a-zA-Z0-9_=]+)\.([a-zA-Z0-9_=]+)\.([a-zA-Z0-9_\-\+\/=]*)"
@@ -36,13 +36,6 @@ export class UserLoginComponent implements OnInit {
   }
   get password() {
     return this.form.get('password')
-  }
-
-  login(val: any) {
-    this.authService.loginNormal(val)
-  }
-  loginToken(val: string) {
-    this.authService.loginToken(val)
   }
 
   ngOnInit(): void {

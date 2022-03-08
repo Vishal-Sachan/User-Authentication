@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticateService } from 'src/app/services/authenticate.service';
 
 @Component({
   selector: 'app-user-signup',
@@ -7,6 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./user-signup.component.css']
 })
 export class UserSignupComponent implements OnInit {
+
+  constructor(public authService: AuthenticateService) { }
 
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
@@ -46,7 +49,6 @@ export class UserSignupComponent implements OnInit {
     return this.form.get('password')
   }
 
-  constructor() { }
 
   ngOnInit(): void {
   }

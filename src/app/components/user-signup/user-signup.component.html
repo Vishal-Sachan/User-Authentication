@@ -3,7 +3,7 @@
         User Registration
     </div>
     <div class="form-container">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (submit)="authService.signup(form.value)">
             <label for="userName">User Name</label>
             <input type="text" formControlName="userName" maxlength="15">
             <div class="warning" *ngIf="userName.touched && userName.invalid">
