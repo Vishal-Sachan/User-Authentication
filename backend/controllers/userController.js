@@ -2,8 +2,8 @@ const User = require('../models/user.model')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-const createJwtToken = (id) => {
-    return jwt.sign({ id }, process.env.SECRET_KEY, { expiresIn: "10d" });
+const createJwtToken = (userName, contact, email) => {
+    return jwt.sign({ userName, contact, email }, process.env.SECRET_KEY, { expiresIn: "2d" });
 }
 
 const registerUser = async (req, res, next) => {
@@ -12,37 +12,55 @@ const registerUser = async (req, res, next) => {
     const hashedpass = await bcrypt.hash(password, salt)
     const userAlreadyExists = await User.findOne({ email })
     if (userAlreadyExists) {
-        res.status(400).json({
-            message: 'User Already Exists'
+        return res.json({
+            message: "This Email is already Registered"
         })
     }
-    const createdUser = await User.create({ userName, contact, email, password: hashedpass });
+    const token = createJwtToken({ userName, contact, email })
+    const createdUser = await User.create({ userName, contact, email, password: hashedpass, token });
     if (createdUser) {
-        res.status(201).json({
-            message: 'Registered'
+        const { userName, contact, email, token } = createdUser
+        //console.log(createdUser)
+        res.json({
+            message: 'Registered',
+            userName,
+            contact,
+            email,
+            token
         })
     }
     else {
-        res.status(400).json({
+        res.json({
             message: 'Unable to Register User'
         })
     }
 }
 
 const loginUser = async (req, res, next) => {
-    const { email, password } = req.body;
-    const userExists = await User.findOne({ email })
-    if (!userExists) {
-        res.status(400).json({
-            message: 'User not found'
+    const { Email, token } = req.body;
+    const userExists = await User.findOne({ Email })
+    const { userName, contact, email } = userExists
+    if (userExists) {
+        jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+            if (err) {
+                const newToken = createJwtToken({ userName, contact, email })
+                const updatedUser = User.updateOne({ email: email }, { $set: { token: newToken } })
+                //console.log(updatedUser.acknowledged)
+                if (updatedUser.acknowledged) {
+                    return res.json({
+                        message: 'Token has Expired new token Generated',
+                        token: newToken
+                    })
+                }
+            }
+            return res.json({
+                sucess: true
+            })
         })
     }
-    if (await bcrypt.compare(password, userExists.password)) {
-        res.status(200).json({
-            message: 'Logged in Sucessfull',
-            token: createJwtToken(userExists._id)
-        })
-    }
+    return res.json({
+        message: 'User not Registered'
+    })
 }
 
 module.exports = {

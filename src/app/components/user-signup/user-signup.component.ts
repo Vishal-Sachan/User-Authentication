@@ -49,6 +49,13 @@ export class UserSignupComponent implements OnInit {
     return this.form.get('password')
   }
 
+  signupUser(data: any) {
+    this.authService.signup(data).subscribe(res => {
+      localStorage.setItem('currentUser', JSON.stringify(res))
+      localStorage.setItem('token', res.token)
+      alert(res.message)
+    })
+  }
 
   ngOnInit(): void {
   }

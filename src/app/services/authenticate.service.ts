@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { ILoginResponse } from 'src/assets/response';
 import { Observable } from 'rxjs';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -11,25 +12,28 @@ export class AuthenticateService {
 
   public baseUrl = environment.baseUrl;
 
-  // public response: {
-  //   message: string,
-  //   token: string
-  // }
-  public token: any
-  // public token: any
-  // public message: string
-  //public response: ILoginResponse
+  private response: string
+  private token: string
 
   constructor(private http: HttpClient) { }
 
-  login(data: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, data, { responseType: 'text' })
+  // login(data: any) {
+  //   this.http.post<{ message: string, token: string }>(`${this.baseUrl}/login`, data).subscribe(res => {
+  //     console.log(res)
+  //   })
+  // }
+
+  login(data: any) {
+    return this.http.post<any>(`${this.baseUrl}/login`, data)
   }
 
   signup(data: any) {
-    this.http.post(`${this.baseUrl}/register`, data, { responseType: 'text' }).subscribe(res => {
-      console.log(res)
-    })
+    return this.http.post<any>(`${this.baseUrl}/register`, data)
   }
+  // signup(data: any) {
+  //   this.http.post<{ message: string, token: string }>(`${this.baseUrl}/register`, data).subscribe(res => {
+  //     localStorage.setItem("token", res.token)
+  //   })
+  // }
 
 }
