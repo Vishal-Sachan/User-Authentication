@@ -40,9 +40,9 @@ export class UserLoginComponent implements OnInit {
   }
 
   login(data: any) {
-    data.token = localStorage.getItem("token")
+    data.token = sessionStorage.getItem("token")
     this.authService.login(data).subscribe(res => {
-      if (res.sucess) {
+      if (res.token || res.decoded) {
         return this.router.navigate(['/home/view'])
       }
       return alert(res.message)

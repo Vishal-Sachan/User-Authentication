@@ -2,8 +2,10 @@ const User = require('../models/user.model')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+const SECRET_KEY = "hitheremynameisvishalsachananiamfromkanpur"
+
 const createJwtToken = (userName, contact, email) => {
-    return jwt.sign({ userName, contact, email }, process.env.SECRET_KEY, { expiresIn: "2d" });
+    return jwt.sign({ userName, contact, email }, SECRET_KEY, { expiresIn: "2d" });
 }
 
 const registerUser = async (req, res, next) => {
@@ -37,11 +39,11 @@ const registerUser = async (req, res, next) => {
 }
 
 const loginUser = async (req, res, next) => {
-    const { Email, token } = req.body;
-    const userExists = await User.findOne({ Email })
-    const { userName, contact, email } = userExists
+    const { email, token, password } = req.body;
+    const userExists = await User.findOne({ email })
     if (userExists) {
-        jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+        const { userName, contact, email } = userExists
+        jwt.verify(token, SECRET_KEY, (err, decoded) => {
             if (err) {
                 const newToken = createJwtToken({ userName, contact, email })
                 const updatedUser = User.updateOne({ email: email }, { $set: { token: newToken } })
@@ -53,8 +55,8 @@ const loginUser = async (req, res, next) => {
                     })
                 }
             }
-            return res.json({
-                sucess: true
+            res.json({
+                decoded: decoded
             })
         })
     }
