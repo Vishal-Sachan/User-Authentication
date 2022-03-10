@@ -43,7 +43,7 @@ export class UserLoginComponent implements OnInit {
     data.token = sessionStorage.getItem("token")
     this.authService.login(data).subscribe(res => {
       if (res.token || res.decoded) {
-        return this.router.navigate(['/home/view'])
+        return this.router.navigate(['/user'])
       }
       return alert(res.message)
     })

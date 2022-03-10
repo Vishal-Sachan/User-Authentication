@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticateService } from 'src/app/services/authenticate.service';
+import * as CryptoJS from 'crypto-js'
+
 
 @Component({
   selector: 'app-user-signup',
@@ -50,6 +52,12 @@ export class UserSignupComponent implements OnInit {
   }
 
   signupUser(data: any) {
+    //data.password = this.authService.encryptPassword(data.password)
+    //console.log(data.password)
+    //var decryptedPass = this.authService.decryptPassword(data.password)
+    //var password = decryptedPass.toString(CryptoJS.enc.Utf8)
+    //console.log(password)
+
     this.authService.signup(data).subscribe(res => {
       sessionStorage.setItem('currentUser', JSON.stringify(res))
       sessionStorage.setItem('token', res.token)

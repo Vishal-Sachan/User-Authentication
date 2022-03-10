@@ -42,27 +42,38 @@ const loginUser = async (req, res, next) => {
     const { email, token, password } = req.body;
     const userExists = await User.findOne({ email })
     if (userExists) {
-        const { userName, contact, email } = userExists
-        jwt.verify(token, SECRET_KEY, (err, decoded) => {
-            if (err) {
-                const newToken = createJwtToken({ userName, contact, email })
-                const updatedUser = User.updateOne({ email: email }, { $set: { token: newToken } })
-                //console.log(updatedUser.acknowledged)
-                if (updatedUser.acknowledged) {
-                    return res.json({
-                        message: 'Token has Expired new token Generated',
-                        token: newToken
-                    })
+        const correctPass = await bcrypt.compare(password, userExists.password)
+        //console.log(correctPass)
+        if (correctPass) {
+            const { userName, contact, email } = userExists
+            jwt.verify(token, SECRET_KEY, (err, decoded) => {
+                if (err) {
+                    const newToken = createJwtToken({ userName, contact, email })
+                    const updatedUser = User.updateOne({ email: email }, { $set: { token: newToken } })
+                    //console.log(updatedUser.acknowledged)
+                    if (updatedUser.acknowledged) {
+                        sessionStorage.setItem('token', newToken)
+                        return res.status(201).json({
+                            message: 'Token has Expired new token Generated',
+                        })
+                    }
                 }
-            }
-            res.json({
-                decoded: decoded
+                res.status(201).json({
+                    decoded: decoded
+                })
             })
+        }
+        else {
+            res.status(201).json({
+                message: 'Password Incorrect'
+            })
+        }
+    }
+    else {
+        res.status(201).json({
+            message: 'This User is not Registered'
         })
     }
-    return res.json({
-        message: 'User not Registered'
-    })
 }
 
 module.exports = {
