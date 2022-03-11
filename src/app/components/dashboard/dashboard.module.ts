@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from '../user-home/header/header.component';
+import { FooterComponent } from '../user-home/footer/footer.component';
 import { HomeComponent } from './home-pages/home/home.component';
 
 
