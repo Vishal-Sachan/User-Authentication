@@ -9,7 +9,6 @@ import * as CryptoJS from 'crypto-js'
 export class AuthenticateService {
 
   private baseUrl = environment.baseUrl;
-  private SECRET_KEY = "SecretKeyForEncrypt&Eecrypt"
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +18,10 @@ export class AuthenticateService {
   // decryptPassword(password: string) {
   //   return CryptoJS.AES.decrypt(password, this.SECRET_KEY)
   // }
+
+  validateToken(token: string) {
+    return this.http.post<any>(`${this.baseUrl}/verify`, token)
+  }
 
   login(data: any) {
     return this.http.post<any>(`${this.baseUrl}/login`, data)

@@ -1,0 +1,13 @@
+<nav>
+    <ul>
+        <div>
+            <li><a routerLink="/user" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            true}">Home</a></li>
+            <li><a routerLink="/user/view" routerLinkActive="active">User Details</a></li>
+        </div>
+        <div>
+            <li><a>Name</a></li>
+            <li><button class="btn-logout" routerLink="/" (click)="logout()">Log Out</button></li>
+        </div>
+    </ul>
+</nav>

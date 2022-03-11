@@ -53,18 +53,17 @@ export class UserSignupComponent implements OnInit {
 
   signupUser(data: any) {
     this.authService.signup(data).subscribe(res => {
-      sessionStorage.setItem('currentUser', JSON.stringify(res))
-      sessionStorage.setItem('token', res.token)
       alert(res.message)
+      this.router.navigate(['/'])
     })
   }
 
   ngOnInit(): void {
-    var isLogin = sessionStorage.getItem('isLogin')
-    // console.log(isLogin)
-    if (!isLogin) {
-      this.router.navigate(['/user'])
-    }
+    // var isLogin = sessionStorage.getItem('isLogin')
+    // // console.log(isLogin)
+    // if (!isLogin) {
+    //   this.router.navigate(['/user'])
+    // }
   }
 
 }

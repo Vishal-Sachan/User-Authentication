@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router, RouterModule, Routes } from '@angular/router'
+import { Router } from '@angular/router'
 import { AuthenticateService } from 'src/app/services/authenticate.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { AuthenticateService } from 'src/app/services/authenticate.service';
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.css']
 })
+
 export class UserLoginComponent implements OnInit {
 
   constructor(public authService: AuthenticateService, private router: Router) { }
@@ -40,24 +41,32 @@ export class UserLoginComponent implements OnInit {
   }
 
   login(data: any) {
-    data.token = sessionStorage.getItem("token")
+    // data.token = sessionStorage.getItem("token")
     this.authService.login(data).subscribe(res => {
-      if (res.isLogin) {
+      if (res.token) {
         console.log(res.message)
-        sessionStorage.setItem('isLogin', res.isLogin)
-        return this.router.navigate(['/user'])
+        console.log(res.token)
+        localStorage.setItem('currentUser', res.user)
+        localStorage.setItem('token', res.token)
+        // sessionStorage.setItem('isLogin', res.isLogin)
+        this.router.navigate(['/user'])
       }
       else {
-        sessionStorage.setItem('isLogin', res.isLogin)
+        // sessionStorage.setItem('isLogin', res.isLogin)
         return alert(res.message)
       }
     })
   }
+
   ngOnInit(): void {
-    var isLogin = sessionStorage.getItem('isLogin')
-    // console.log(isLogin)
-    if (!isLogin) {
-      this.router.navigate(['/user'])
+    const token = localStorage.getItem('token')
+    if (token) {
+      this.authService.validateToken(token).subscribe(res => {
+        if (res.token) {
+          localStorage.setItem('token', res.token)
+          this.router.navigate(['/user'])
+        }
+      })
     }
   }
 
