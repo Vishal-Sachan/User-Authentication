@@ -4,8 +4,8 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 import { UserSignupComponent } from './components/user-signup/user-signup.component';
 
 const routes: Routes = [
-  { path: '', component: UserSignupComponent },
-  { path: 'login', component: UserLoginComponent },
+  { path: 'signup', component: UserSignupComponent },
+  { path: '', component: UserLoginComponent },
   { path: 'user', loadChildren: () => import('../app/components/dashboard/dashboard.module').then(m => m.DashboardModule) }
 ];
 
