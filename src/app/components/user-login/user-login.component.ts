@@ -42,13 +42,21 @@ export class UserLoginComponent implements OnInit {
   login(data: any) {
     data.token = sessionStorage.getItem("token")
     this.authService.login(data).subscribe(res => {
-      if (res.token || res.decoded) {
+      if (res.isLogin) {
+        console.log(res.message)
+        sessionStorage.setItem('isLogin', res.isLogin)
         return this.router.navigate(['/user'])
       }
-      return alert(res.message)
+      else {
+        sessionStorage.setItem('isLogin', res.isLogin)
+        return alert(res.message)
+      }
     })
   }
   ngOnInit(): void {
+    if (sessionStorage.getItem('isLogin')) {
+      this.router.navigate(['/user'])
+    }
   }
 
 }
