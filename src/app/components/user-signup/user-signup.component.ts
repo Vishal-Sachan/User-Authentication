@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticateService } from 'src/app/services/authenticate.service';
-import * as CryptoJS from 'crypto-js'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +11,7 @@ import * as CryptoJS from 'crypto-js'
 })
 export class UserSignupComponent implements OnInit {
 
-  constructor(public authService: AuthenticateService) { }
+  constructor(public authService: AuthenticateService, private router: Router) { }
 
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
@@ -66,6 +66,9 @@ export class UserSignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem('isLogin')) {
+      this.router.navigate(['/user'])
+    }
   }
 
 }
