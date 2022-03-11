@@ -54,7 +54,9 @@ export class UserLoginComponent implements OnInit {
     })
   }
   ngOnInit(): void {
-    if (sessionStorage.getItem('isLogin')) {
+    var isLogin = sessionStorage.getItem('isLogin')
+    // console.log(isLogin)
+    if (!isLogin) {
       this.router.navigate(['/user'])
     }
   }
