@@ -12,13 +12,6 @@ export class AuthenticateService {
 
   constructor(private http: HttpClient) { }
 
-  // encryptPassword(password: string): string {
-  //   return CryptoJS.AES.encrypt(password, this.SECRET_KEY).toString()
-  // }
-  // decryptPassword(password: string) {
-  //   return CryptoJS.AES.decrypt(password, this.SECRET_KEY)
-  // }
-
   validateToken(token: string) {
     return this.http.post<any>(`${this.baseUrl}/verify`, token)
   }
