@@ -55,23 +55,27 @@ const loginUser = async (req, res, next) => {
                         sessionStorage.setItem('token', newToken)
                         return res.status(201).json({
                             message: 'Token has Expired new token Generated',
+                            isLogin: true
                         })
                     }
                 }
                 res.status(201).json({
-                    decoded: decoded
+                    decoded: decoded,
+                    isLogin: true
                 })
             })
         }
         else {
             res.status(201).json({
-                message: 'Password Incorrect'
+                message: 'Password Incorrect',
+                isLogin: false
             })
         }
     }
     else {
         res.status(201).json({
-            message: 'This User is not Registered'
+            message: 'This User is not Registered',
+            isLogin: false
         })
     }
 }
