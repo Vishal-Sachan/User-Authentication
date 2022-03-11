@@ -56,7 +56,6 @@ export class UserSignupComponent implements OnInit {
     //console.log(data.password)
     //var decryptedPass = this.authService.decryptPassword(data.password)
     //var password = decryptedPass.toString(CryptoJS.enc.Utf8)
-    //console.log(password)
 
     this.authService.signup(data).subscribe(res => {
       sessionStorage.setItem('currentUser', JSON.stringify(res))
