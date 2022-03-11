@@ -52,8 +52,6 @@ export class UserSignupComponent implements OnInit {
   }
 
   signupUser(data: any) {
-    //data.password = this.authService.encryptPassword(data.password)
-
     this.authService.signup(data).subscribe(res => {
       sessionStorage.setItem('currentUser', JSON.stringify(res))
       sessionStorage.setItem('token', res.token)
