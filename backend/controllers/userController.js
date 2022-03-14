@@ -106,6 +106,8 @@ const loginUser = async (req, res, next) => {
 
 const tokenValidate = async (req, res, next) => {
     const token = req.body.token
+    console.log(token)
+    console.log(req.body)
     jwt.verify(token, SECRET_KEY, (err, decoded) => {
         if (decoded) {
             return res.status(201).json({
@@ -114,6 +116,7 @@ const tokenValidate = async (req, res, next) => {
         }
     })
 }
+
 module.exports = {
     registerUser,
     loginUser,
