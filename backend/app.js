@@ -2,10 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config()
-//const jwt = require('jsonwebtoken')
-const user = require('./models/user.model')
 const userRoute = require('./routes/userRoutes')
-const bcrypt = require('bcryptjs')
 const port = process.env.PORT || 3000
 const app = express()
 
