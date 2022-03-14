@@ -60,6 +60,7 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {
     const token = localStorage.getItem('token')
+    //console.log(token)
     if (token) {
       this.authService.validateToken(token).subscribe(res => {
         if (res.token) {
