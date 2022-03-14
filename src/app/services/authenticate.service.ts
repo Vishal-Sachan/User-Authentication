@@ -12,7 +12,8 @@ export class AuthenticateService {
 
   constructor(private http: HttpClient) { }
 
-  validateToken(token: string) {
+  validateToken(token: any) {
+    //console.log(token)
     return this.http.post<any>(`${this.baseUrl}/verify`, token)
   }
 
