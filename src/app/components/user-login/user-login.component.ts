@@ -46,7 +46,9 @@ export class UserLoginComponent implements OnInit {
       if (res.token) {
         console.log(res.message)
         console.log(res.token)
-        localStorage.setItem('currentUser', res.user)
+        // var data = res.user
+        // console.log(data)
+        localStorage.setItem('currentUser', JSON.stringify(res.user))
         localStorage.setItem('token', res.token)
         // sessionStorage.setItem('isLogin', res.isLogin)
         this.router.navigate(['/user'])

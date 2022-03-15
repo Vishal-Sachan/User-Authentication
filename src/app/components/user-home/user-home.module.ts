@@ -4,19 +4,32 @@ import { UserHomeRoutingModule } from './user-home-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserHomeComponent } from './user-home.component';
-import { UserViewComponent } from './pages/user-view/user-view.component';
-
+import { PersonalDetailComponent } from './pages/personal-detail/personal-detail.component';
+import { EducationComponent } from './pages/education/education.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { HomeComponent } from './pages/home/home.component';
+import { UserServiceService } from './services/user-service.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     UserHomeComponent,
     HeaderComponent,
     FooterComponent,
-    UserViewComponent
+    PersonalDetailComponent,
+    EducationComponent,
+    AboutComponent,
+    ContactComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,
-    UserHomeRoutingModule
+    UserHomeRoutingModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    UserServiceService
   ]
 })
 export class UserHomeModule { }

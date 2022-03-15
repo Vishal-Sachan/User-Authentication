@@ -2,7 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv').config()
-const userRoute = require('./routes/userRoutes')
+const userRoute = require('./routes/user-login-routes')
+const detailRoute = require('./routes/details-routes')
+const educationRoute = require('./routes/education-routes')
 const port = process.env.PORT || 3000
 const app = express()
 
@@ -28,6 +30,8 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', userRoute);
+app.use('/user/detail', detailRoute)
+app.use('/user/education', educationRoute)
 
 // app.post("/register", async (req, res) => {
 //     try {

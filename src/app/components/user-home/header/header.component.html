@@ -3,10 +3,13 @@
         <div>
             <li><a routerLink="/user" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
             true}">Home</a></li>
-            <li><a routerLink="/user/view" routerLinkActive="active">User Details</a></li>
+            <li><a routerLink="/user/personal-detail" routerLinkActive="active">Personal</a></li>
+            <li><a routerLink="/user/education" routerLinkActive="active">Education</a></li>
+            <li><a routerLink="/user/about" routerLinkActive="active">About</a></li>
+            <li><a routerLink="/user/contact" routerLinkActive="active">Contact</a></li>
         </div>
         <div>
-            <li><a>Name</a></li>
+            <li><a>Hi, {{this.currentUser.userName}}</a></li>
             <li><button class="btn-logout" routerLink="/" (click)="logout()">Log Out</button></li>
         </div>
     </ul>

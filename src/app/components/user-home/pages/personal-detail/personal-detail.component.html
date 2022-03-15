@@ -1,0 +1,127 @@
+<!-- <form [formGroup]="form">
+    <div class="form-group">
+        <label for="firstName">First Name
+            <input type="text" id="firstName" formControlName="firstName" maxlength="20">
+            <div class="warning" *ngIf="firstName.touched && firstName.invalid">
+                <div *ngIf="firstName.errors['required']">
+                    *First Name is required
+                </div>
+                <div *ngIf="firstName.errors['pattern']">
+                    *Should be a Character Only
+                </div>
+            </div>
+        </label>
+        <label for="lastName" id=lastname-label>Last Name
+            <input type="text" id="lastName" formControlName="lastName" maxlength="20">
+            <div class="warning" *ngIf="lastName.touched && lastName.invalid">
+                <div *ngIf="lastName.errors['required']">
+                    *Last Name is required
+                </div>
+                <div *ngIf="lastName.errors['pattern']">
+                    *Should be a Character Only
+                </div>
+            </div>
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="age">Date of Birth
+            <input type="date" id="dob" formControlName="dob">
+            <div class="warning" *ngIf="dob.touched && dob.invalid">
+                <div *ngIf="dob.errors['required']">
+                    *DOB is required
+                </div>
+            </div>
+        </label>
+        <label for="age">Age
+            <input type="text" maxlength="2" id="age" formControlName="age">
+            <div class="warning" *ngIf="age.touched && age.invalid">
+                <div *ngIf="age.errors['required']">
+                    *Age is required
+                </div>
+                <div *ngIf="age.errors['pattern']">
+                    *should be a number
+                </div>
+            </div>
+        </label>
+        <label for="phone">Phone Number
+            <input type="tel" id="phone" formControlName="phone" maxlength="10">
+            <div class="warning" *ngIf="phone.touched && phone.invalid">
+                <div *ngIf="phone.errors['required']">
+                    *Contact is required
+                </div>
+                <div *ngIf="phone.errors['minlength']">
+                    *should be of 10 digit
+                </div>
+                <div *ngIf="phone.errors['pattern']">
+                    *should be a number
+                </div>
+            </div>
+        </label>
+        <label for="gender">Gender
+            <select id="gender" formControlName="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+            </select>
+            <div class="warning" *ngIf="gender.touched && gender.invalid">
+                <div *ngIf="gender.errors['required']">
+                    *Gender is required
+                </div>
+            </div>
+        </label>
+    </div>
+    <div class="form-group-2">
+        <label for="address">Address
+            <input type="text" id="address" formControlName="address">
+            <div class="warning" *ngIf="address.touched && address.invalid">
+                <div *ngIf="address.errors['required']">
+                    *Address is required
+                </div>
+                <div *ngIf="address.errors['pattern']">
+                    *Address Invalid
+                </div>
+            </div>
+        </label>
+        <label for="email">Email
+            <input type="email" id="email" formControlName="email">
+            <div class="warning" *ngIf="email.touched && email.invalid">
+                <div *ngIf="email.errors['required']">
+                    *Email is required
+                </div>
+                <div *ngIf="email.errors['pattern']">
+                    *Invalid type example: "john20@gmail.com"
+                </div>
+            </div>
+        </label>
+    </div>
+    <button type="submit" id="btn-submit" [disabled]="!form.valid">Submit</button>
+</form> -->
+<div>
+    <div>Personal Details</div>
+    <div class="detail-container">
+        <div>
+            <div>
+                <ul>
+                    <li>First Name</li>
+                    <li>Last Name</li>
+                    <li>Date of Birth</li>
+                    <li>Gender</li>
+                    <li>Marital Status</li>
+                    <li>Contact Number</li>
+                    <li>Address</li>
+                    <li>Postal Code</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li *ngFor="let i of counter(8)">:</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</div>

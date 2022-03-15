@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  private currentUser = localStorage.getItem('currentUser')
+  public currentUser = JSON.parse(localStorage.getItem('currentUser'))
 
   logout() {
     localStorage.removeItem('token')
