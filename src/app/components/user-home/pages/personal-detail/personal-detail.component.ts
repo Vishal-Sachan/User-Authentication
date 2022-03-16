@@ -18,7 +18,6 @@ export class PersonalDetailComponent implements OnInit {
   constructor(private userService: UserServiceService) { }
 
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  emailPattern2 = '[a-z0-9]+[@]+[a-z]+[.]+[a-z]*';
 
   form = new FormGroup({
     firstName: new FormControl('', [
