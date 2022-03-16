@@ -44,17 +44,15 @@ export class UserLoginComponent implements OnInit {
     // data.token = sessionStorage.getItem("token")
     this.authService.login(data).subscribe(res => {
       if (res.token) {
-        console.log(res.message)
-        console.log(res.token)
+        // console.log(res.message)
+        // console.log(res.token)
         // var data = res.user
         // console.log(data)
         localStorage.setItem('currentUser', JSON.stringify(res.user))
         localStorage.setItem('token', res.token)
-        // sessionStorage.setItem('isLogin', res.isLogin)
         this.router.navigate(['/user'])
       }
       else {
-        // sessionStorage.setItem('isLogin', res.isLogin)
         return alert(res.message)
       }
     })
@@ -62,7 +60,7 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {
     const token = localStorage.getItem('token')
-    //console.log(token)
+    // console.log(token)
     if (token) {
       this.authService.validateToken(token).subscribe(res => {
         if (res.token) {

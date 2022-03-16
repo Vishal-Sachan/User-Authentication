@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { userDetail } from 'src/assets/user-personal-detail';
 import { UserServiceService } from '../../services/user-service.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class PersonalDetailComponent implements OnInit {
     this.changeClass2 = 'not-hidden'
   }
 
-  public user: any
+  public user: userDetail
 
   constructor(private userService: UserServiceService) { }
 
@@ -95,8 +96,10 @@ export class PersonalDetailComponent implements OnInit {
     var email = this.userService.currentUser.email
     //console.log(email)
     this.userService.getUserPersonalDetail(email).subscribe(res => {
-      this.user = res.data
-      console.log(this.user)
+      if (res.data) {
+        this.user = res.data
+        // console.log(this.user)
+      }
     })
   }
 

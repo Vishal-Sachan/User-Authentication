@@ -14,7 +14,7 @@ export class AuthenticateService {
 
   validateToken(token: any) {
     //console.log(token)
-    return this.http.post<any>(`${this.baseUrl}/verify`, token)
+    return this.http.get<any>(`${this.baseUrl}/verify/${token}`)
   }
 
   login(data: any) {
