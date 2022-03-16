@@ -33,24 +33,6 @@ app.use('/', userRoute);
 app.use('/user/detail', detailRoute)
 app.use('/user/education', educationRoute)
 
-// app.post("/register", async (req, res) => {
-//     try {
-//         var data = req.body;
-//         var hashedpass = await bcrypt.hash(data.password, 10)
-//         data.password = hashedpass
-//         console.log(data.password)
-//         console.log(data.password)
-//         // const token = await jwt.sign(data, process.env.SECRET_KEY)
-//         // data.token = token;
-//         const response = await user.create(data)
-//         res.send(response)
-//         console.log(response)
-//     }
-//     catch (err) {
-//         console.log(err)
-//     }
-// })
-
 app.listen(port, () => {
     console.log(`Listening at ${port}...`)
 })

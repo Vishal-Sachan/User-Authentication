@@ -9,7 +9,7 @@
             <li><a routerLink="/user/contact" routerLinkActive="active">Contact</a></li>
         </div>
         <div>
-            <li><a>Hi, {{this.currentUser.userName}}</a></li>
+            <li><a>Hi, {{this.userService.currentUser.userName}}</a></li>
             <li><button class="btn-logout" routerLink="/" (click)="logout()">Log Out</button></li>
         </div>
     </ul>

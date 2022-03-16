@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public userService: UserServiceService) { }
 
-  public currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
 
   logout() {
     localStorage.removeItem('token')
