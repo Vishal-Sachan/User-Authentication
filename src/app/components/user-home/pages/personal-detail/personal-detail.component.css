@@ -41,3 +41,25 @@ li {
   padding: 5px;
   font-size: 22px;
 }
+.hidden {
+  display: none;
+}
+.btn-edit-details,
+.btn-cancel-form,
+.btn-submit-form {
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid rgb(82, 82, 82);
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+.warning {
+  font-size: 16px;
+  color: red;
+}

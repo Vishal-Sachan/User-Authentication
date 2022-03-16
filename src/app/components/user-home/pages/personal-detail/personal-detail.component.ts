@@ -13,6 +13,19 @@ export class PersonalDetailComponent implements OnInit {
     return new Array(i);
   }
 
+  changeClass1 = 'hidden'
+  changeClass2 = 'not-hidden'
+
+  changeProperty() {
+    this.changeClass1 = 'not-hidden'
+    this.changeClass2 = 'hidden'
+  }
+
+  changeProperty2() {
+    this.changeClass1 = 'hidden'
+    this.changeClass2 = 'not-hidden'
+  }
+
   public user: any
 
   constructor(private userService: UserServiceService) { }
@@ -48,9 +61,8 @@ export class PersonalDetailComponent implements OnInit {
       Validators.required,
       Validators.pattern('[a-zA-Z0-9 ]*')
     ]),
-    email: new FormControl('', [
-      Validators.required,
-      Validators.pattern(this.emailPattern)
+    maritalStatus: new FormControl('', [
+      Validators.required
     ])
   })
 
@@ -69,8 +81,8 @@ export class PersonalDetailComponent implements OnInit {
   get phone() {
     return this.form.get('phone')
   }
-  get email() {
-    return this.form.get('email')
+  get maritalStatus() {
+    return this.form.get('maritalStatus')
   }
   get age() {
     return this.form.get('age')
