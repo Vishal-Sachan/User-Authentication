@@ -96,10 +96,10 @@
     </div>
     <button type="submit" id="btn-submit" [disabled]="!form.valid">Submit</button>
 </form> -->
-<div>
-    <div>Personal Details</div>
+<div class="detail-main-container">
+    <div class="detail-heading">Personal Details</div>
     <div class="detail-container">
-        <div>
+        <div class="detail-container-2">
             <div>
                 <ul>
                     <li>First Name</li>
@@ -112,16 +112,26 @@
                     <li>Postal Code</li>
                 </ul>
             </div>
-            <div>
+            <div class="semicolon-container">
                 <ul>
                     <li *ngFor="let i of counter(8)">:</li>
                 </ul>
             </div>
         </div>
         <div>
-            <ul>
-                <li></li>
-            </ul>
+            <!-- <ul>
+                <li>{{user.firstName}}</li>
+                <li>{{user.lastName}}</li>
+                <li>{{user.dob}}</li>
+                <li>{{user.gender}}</li>
+                <li>{{user.maritalStatus}}</li>
+                <li>{{user.contact}}</li>
+                <li>{{user.address}}</li>
+                <li>{{user.postalCode}}</li>
+            </ul> -->
         </div>
+    </div>
+    <div>
+        <button class="btn-edit-details">Edit Details</button>
     </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserServiceService } from '../../services/user-service.service';
 
 @Component({
   selector: 'app-personal-detail',
@@ -12,7 +13,9 @@ export class PersonalDetailComponent implements OnInit {
     return new Array(i);
   }
 
-  constructor() { }
+  public user: any
+
+  constructor(private userService: UserServiceService) { }
 
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   emailPattern2 = '[a-z0-9]+[@]+[a-z]+[.]+[a-z]*';
@@ -78,6 +81,12 @@ export class PersonalDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var email = this.userService.currentUser.email
+    //console.log(email)
+    this.userService.getUserPersonalDetail(email).subscribe(res => {
+      this.user = res.data
+      console.log(this.user)
+    })
   }
 
 }
