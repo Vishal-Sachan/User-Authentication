@@ -14,7 +14,7 @@ export class UserServiceService {
 
   getUserPersonalDetail(email: any) {
     // console.log(email)
-    return this.http.get<any>(`${this.baseUrl}/user/detail/view/${email}`)
+    return this.http.post<any>(`${this.baseUrl}/user/detail/view`, { 'email': email })
   }
 
 }

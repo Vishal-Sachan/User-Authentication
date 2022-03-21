@@ -94,7 +94,7 @@ export class PersonalDetailComponent implements OnInit {
 
   ngOnInit(): void {
     var email = this.userService.currentUser.email
-    //console.log(email)
+    // this.fetch(email)
     this.userService.getUserPersonalDetail(email).subscribe(res => {
       if (res.data) {
         this.user = res.data
@@ -102,5 +102,4 @@ export class PersonalDetailComponent implements OnInit {
       }
     })
   }
-
 }

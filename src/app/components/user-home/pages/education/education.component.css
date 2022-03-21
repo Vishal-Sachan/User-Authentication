@@ -1,0 +1,65 @@
+.detail-main-container {
+  border-radius: 50px;
+  align-content: center;
+  margin: auto;
+  width: 60%;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: rgb(155, 155, 155);
+  height: max-content;
+}
+
+.detail-heading {
+  font-size: 26px;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.detail-container {
+  margin-left: 40px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.detail-container-2 {
+  display: flex;
+  font-weight: 500;
+}
+
+.semicolon-container {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+ul {
+  list-style-type: none;
+}
+li {
+  padding: 5px;
+  font-size: 22px;
+}
+.hidden {
+  display: none;
+}
+.btn-edit-details,
+.btn-cancel-form,
+.btn-submit-form {
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid rgb(82, 82, 82);
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+.warning {
+  font-size: 16px;
+  color: red;
+}

@@ -6,6 +6,6 @@ const educationController = require('../controllers/userController')
 
 router.post('/register', userController.registerUser)
 router.post('/login', userController.loginUser)
-router.get('/verify/:token', userController.tokenValidate)
+router.post('/verify', userController.tokenValidate)
 
 module.exports = router;

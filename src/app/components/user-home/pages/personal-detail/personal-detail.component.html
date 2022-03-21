@@ -132,14 +132,14 @@
         </div>
         <div>
             <ul>
-                <li>{{user.firstName}}</li>
-                <li>{{user.lastName}}</li>
+                <li>{{user.firstName| titlecase}}</li>
+                <li>{{user.lastName| titlecase}}</li>
                 <li>{{user.dob}}</li>
-                <li>{{user.gender}}</li>
-                <li>{{user.maritalStatus}}</li>
+                <li>{{user.gender|titlecase}}</li>
+                <li>{{user.maritalStatus | titlecase}}</li>
                 <li>+91 {{user.contact}}</li>
                 <li>{{user.email}}</li>
-                <li>{{user.address}}</li>
+                <li>{{user.address| titlecase}}</li>
                 <li>{{user.postalCode}}</li>
             </ul>
         </div>

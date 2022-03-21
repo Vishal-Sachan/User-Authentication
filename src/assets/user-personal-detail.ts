@@ -1,11 +1,11 @@
 export interface userDetail {
-    firstName: String,
-    lastName: String,
-    dob: String,
+    firstName: string,
+    lastName: string,
+    dob: string,
     contact: Number,
-    address: String,
-    maritalStatus: String,
-    gender: String,
+    address: string,
+    maritalStatus: string,
+    gender: string,
     postalCode: Number,
-    email: String
+    email: string
 }

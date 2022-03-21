@@ -1,1 +1,150 @@
-<p>education works!</p>
+<div class="form-container" [ngClass]="changeClass1">
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label for="firstName">First Name
+                <input type="text" id="firstName" formControlName="firstName" maxlength="20">
+                <div class="warning" *ngIf="firstName.touched && firstName.invalid">
+                    <div *ngIf="firstName.errors['required']">
+                        *First Name is required
+                    </div>
+                    <div *ngIf="firstName.errors['pattern']">
+                        *Should be a Character Only
+                    </div>
+                </div>
+            </label>
+            <label for="lastName" id=lastname-label>Last Name
+                <input type="text" id="lastName" formControlName="lastName" maxlength="20">
+                <div class="warning" *ngIf="lastName.touched && lastName.invalid">
+                    <div *ngIf="lastName.errors['required']">
+                        *Last Name is required
+                    </div>
+                    <div *ngIf="lastName.errors['pattern']">
+                        *Should be a Character Only
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="age">Date of Birth
+                <input type="date" id="dob" formControlName="dob">
+                <div class="warning" *ngIf="dob.touched && dob.invalid">
+                    <div *ngIf="dob.errors['required']">
+                        *DOB is required
+                    </div>
+                </div>
+            </label>
+            <label for="age">Age
+                <input type="text" maxlength="2" id="age" formControlName="age">
+                <div class="warning" *ngIf="age.touched && age.invalid">
+                    <div *ngIf="age.errors['required']">
+                        *Age is required
+                    </div>
+                    <div *ngIf="age.errors['pattern']">
+                        *should be a number
+                    </div>
+                </div>
+            </label>
+            <label for="phone">Phone Number
+                <input type="tel" id="phone" formControlName="phone" maxlength="10">
+                <div class="warning" *ngIf="phone.touched && phone.invalid">
+                    <div *ngIf="phone.errors['required']">
+                        *Contact is required
+                    </div>
+                    <div *ngIf="phone.errors['minlength']">
+                        *should be of 10 digit
+                    </div>
+                    <div *ngIf="phone.errors['pattern']">
+                        *should be a number
+                    </div>
+                </div>
+            </label>
+            <label for="gender">Gender
+                <select id="gender" formControlName="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+                <div class="warning" *ngIf="gender.touched && gender.invalid">
+                    <div *ngIf="gender.errors['required']">
+                        *Gender is required
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="form-group-2">
+            <label for="address">Address
+                <input type="text" id="address" formControlName="address">
+                <div class="warning" *ngIf="address.touched && address.invalid">
+                    <div *ngIf="address.errors['required']">
+                        *Address is required
+                    </div>
+                    <div *ngIf="address.errors['pattern']">
+                        *Address Invalid
+                    </div>
+                </div>
+            </label>
+            <label for="maritalStatus">Marital Status
+                <select id="maritalStatus" formControlName="maritalStatus">
+                    <option value="Male">Un-married</option>
+                    <option value="Female">Married</option>
+                    <option value="Others">Engaged</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widow">Widow</option>
+                    <option value="widower">Widower</option>
+                </select>
+                <div class="warning" *ngIf="maritalStatus.touched && maritalStatus.invalid">
+                    <div *ngIf="maritalStatus.errors['required']">
+                        *required
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div>
+            <button type="submit" class="btn-submit-form" [disabled]="!form.valid">Submit</button>
+            <button class="btn-cancel-form" (click)="changeProperty2()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="detail-main-container" [ngClass]="changeClass2">
+    <div class="detail-heading">Personal Details</div>
+    <div class="detail-container">
+        <div class="detail-container-2">
+            <div>
+                <ul>
+                    <li>First Name</li>
+                    <li>Last Name</li>
+                    <li>Date of Birth</li>
+                    <li>Gender</li>
+                    <li>Marital Status</li>
+                    <li>Contact Number</li>
+                    <li>Email</li>
+                    <li>Address</li>
+                    <li>Postal Code</li>
+                </ul>
+            </div>
+            <div class="semicolon-container">
+                <ul>
+                    <li *ngFor="let i of counter(9)">:</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <ul>
+                <li>{{user.firstName| titlecase}}</li>
+                <li>{{user.lastName| titlecase}}</li>
+                <li>{{user.dob}}</li>
+                <li>{{user.gender|titlecase}}</li>
+                <li>{{user.maritalStatus | titlecase}}</li>
+                <li>+91 {{user.contact}}</li>
+                <li>{{user.email}}</li>
+                <li>{{user.address| titlecase}}</li>
+                <li>{{user.postalCode}}</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <button class="btn-edit-details" (click)="changeProperty()">Edit Details</button>
+    </div>
+</div>
