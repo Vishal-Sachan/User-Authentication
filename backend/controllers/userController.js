@@ -53,7 +53,7 @@ const loginUser = async (req, res, next) => {
 }
 
 const tokenValidate = async (req, res, next) => {
-    const token = req.params.token
+    const token = req.body.token
     // console.log(token)
     jwt.verify(token, SECRET_KEY, (err, decoded) => {
         if (decoded) {
