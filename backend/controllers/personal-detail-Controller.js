@@ -2,8 +2,8 @@ const Details = require('../models/personal-details.model')
 
 const ViewDetail = async (req, res, next) => {
     try {
-        const email = req.params.email
-        console.log(email)
+        const { email } = req.body
+        // console.log(req.body)
         const response = await Details.findOne({ email })
         res.json({
             data: response
